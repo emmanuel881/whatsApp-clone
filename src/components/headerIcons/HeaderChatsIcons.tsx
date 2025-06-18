@@ -1,18 +1,21 @@
+import { useTheme } from '@react-navigation/native'; // Import the hook
 import { Camera, MoreVertical, Search } from "lucide-react-native";
 import React from 'react';
 import { Pressable, View } from 'react-native';
 
 const HeaderChatsIcons = () => {
+    const { colors } = useTheme(); // Get theme colors
+
     return (
         <View className="flex-row items-center gap-8">
             <Pressable>
-                <Camera size={24} color="black" />
+                <Camera size={24} color={colors.primary} />
             </Pressable>
             <Pressable>
-                <Search size={24} color="black" />
+                <Search size={24} color={colors.primary} />
             </Pressable>
             <Pressable>
-                <MoreVertical size={24} color="black" />
+                <MoreVertical size={24} color={colors.primary} />
             </Pressable>
         </View>
     )
