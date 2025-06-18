@@ -9,15 +9,20 @@ import { MessageCircleDashed, MessageSquare, Phone, Users } from "lucide-react-n
 
 
 export default function tabsLayout() {
-    return <Tabs>
+    return <Tabs screenOptions={{
+        headerStyle: {
+            borderBottomWidth: 1,
+            borderBottomColor: "rgba(233, 235, 236, 0.1)",
+        }, headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 22,
+        }
+    }}>
         <Tabs.Screen name="index"
             options={{
                 title: "Chats",
                 headerTitle: "WhatsApp",
-                headerTitleStyle: {
-                    fontWeight: "bold",
-                    fontSize: 22,
-                },
+
                 headerRight: () => (
                     <HeaderChatsIcons />
                 ),
@@ -29,10 +34,7 @@ export default function tabsLayout() {
             options={{
                 title: "Updates",
                 headerTitle: "Updates",
-                headerTitleStyle: {
-                    fontWeight: "bold",
-                    fontSize: 22,
-                },
+
                 headerRight: () => (
                     <HeaderUpdatesIcons />
                 ),
@@ -44,10 +46,7 @@ export default function tabsLayout() {
             options={{
                 title: "Communities",
                 headerTitle: "Communities",
-                headerTitleStyle: {
-                    fontWeight: "bold",
-                    fontSize: 22,
-                },
+
                 headerRight: () => <HeaderCommunitiesIcons />,
                 tabBarIcon: ({ color }) => (
                     <Users size={24} color={color} />
@@ -57,10 +56,7 @@ export default function tabsLayout() {
             options={{
                 title: "Calls",
                 headerTitle: "Calls",
-                headerTitleStyle: {
-                    fontWeight: "bold",
-                    fontSize: 22,
-                },
+
                 headerRight: () => <HeaderCallIcons />,
                 tabBarIcon: ({ color }) => (
                     <Phone size={24} color={color} />
