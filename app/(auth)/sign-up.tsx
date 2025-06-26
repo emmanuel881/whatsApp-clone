@@ -1,4 +1,4 @@
-import { useAuth } from "@/src/hooks/useAuth";
+import { useAuth } from "@/src/context/auth-context";
 import { supabase } from "@/src/supabase/client";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
@@ -108,8 +108,8 @@ export default function SignUpScreen() {
             )}
             <TouchableOpacity
                 className={`rounded-lg py-3 items-center ${allFieldsFilled
-                        ? "bg-[#25D366]"
-                        : "bg-[#374151]"
+                    ? "bg-[#25D366]"
+                    : "bg-[#374151]"
                     }`}
                 onPress={handleSignUp}
                 disabled={sending || !allFieldsFilled}

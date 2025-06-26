@@ -1,5 +1,5 @@
-import { Link } from "expo-router";
-import { Pressable, Text, View } from "react-native";
+import Logout from "@/src/components/Logout";
+import { Text, View } from "react-native";
 
 
 export default function Index() {
@@ -9,11 +9,7 @@ export default function Index() {
         Welcome to the App!
 
       </Text>
-      <Pressable className="bg-blue-500 p-4 rounded-lg m-4">
-        <Link href="/(auth)/sign-up">
-          <Text className="text-white text-center">Sign Up</Text>
-        </Link>
-      </Pressable>
+      <Logout />
     </View>
   );
 }
