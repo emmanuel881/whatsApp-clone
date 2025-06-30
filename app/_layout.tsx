@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import "../global.css";
 //theme
 import { AuthProvider } from "@/src/context/auth-context";
+//import toastConfig from "@/src/utils/toastConfig";
 import { DarkTheme, ThemeProvider } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import "react-native-url-polyfill/auto";
@@ -27,6 +28,7 @@ export default function RootLayout() {
           <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         </Stack>
       </AuthProvider>
+      {/* <Toast config={toastConfig} /> */}
     </ThemeProvider>
   )
 }

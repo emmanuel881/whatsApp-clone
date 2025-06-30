@@ -90,7 +90,7 @@ export default function SignInScreen() {
                 />
             </View>
             {message && (
-                <Text className="text-center mb-4 text-[#25D366]">{message}</Text>
+                <Text className="text-center mb-4 text-red-600">{message}</Text>
             )}
             <TouchableOpacity
                 className={`rounded-lg py-3 items-center ${allFieldsFilled

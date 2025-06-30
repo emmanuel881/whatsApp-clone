@@ -18,10 +18,11 @@ export default function SignUpScreen() {
     const { session, loading } = useAuth();
 
     useEffect(() => {
-        if (session) {
+        //check if there is an active session and loading is false(avoid firing if session isn't ready)
+        if (!loading && session) {
             router.replace("/");
         }
-    }, [session]);
+    }, [loading, session]);
 
     // Validation logic
     const allFieldsFilled =
