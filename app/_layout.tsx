@@ -5,6 +5,7 @@ import { AuthProvider } from "@/src/context/auth-context";
 //import toastConfig from "@/src/utils/toastConfig";
 import { DarkTheme, ThemeProvider } from "@react-navigation/native";
 import { StatusBar } from "react-native";
+import FlashMessage from "react-native-flash-message";
 import "react-native-url-polyfill/auto";
 
 const myTheme = {
@@ -29,6 +30,7 @@ export default function RootLayout() {
         </Stack>
       </AuthProvider>
       {/* <Toast config={toastConfig} /> */}
+      <FlashMessage position="top" />
     </ThemeProvider>
   )
 }

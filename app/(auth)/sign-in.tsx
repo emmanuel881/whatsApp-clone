@@ -3,6 +3,7 @@ import { supabase } from "@/src/supabase/client";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, KeyboardAvoidingView, Platform, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { showMessage } from "react-native-flash-message";
 
 // Simple email validation regex
 const isValidEmail = (email: string) =>
@@ -47,6 +48,12 @@ export default function SignInScreen() {
             setMessage(error.message);
         } else {
             setMessage("Login successful!");
+            showMessage({
+                message: "Login successful",
+                description: "You have been logged in successfully.",
+                type: "success",
+                duration: 3000,
+            });
         }
         setSending(false);
     };
