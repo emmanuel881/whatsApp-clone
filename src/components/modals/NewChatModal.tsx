@@ -1,3 +1,4 @@
+import { useAuth } from "@/src/context/auth-context";
 import { supabase } from "@/src/supabase/client";
 import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
@@ -21,6 +22,8 @@ export default function NewChatModal({ visible, onClose }: Props) {
     const [results, setResults] = useState<UserProfile[]>([])
     const [loading, setLoading] = useState(false)
     const router = useRouter()
+    const { session } = useAuth()
+    const currentUserId = session?.user?.id;
 
 
     useEffect(() => {
@@ -35,6 +38,7 @@ export default function NewChatModal({ visible, onClose }: Props) {
                 .from("profiles")
                 .select("id, username, avatar_url, full_name")
                 .ilike("username", `%${query}%`)
+                .neq("id", currentUserId) // Exclude current user
                 .limit(10);
 
             if (!error) {
