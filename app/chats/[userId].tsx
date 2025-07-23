@@ -15,12 +15,15 @@ interface Message {
 const ChatScreen = () => {
     const { session } = useAuth();
     const { userId } = useLocalSearchParams<{ userId: string }>();
+    // console.log("User ID from params:", userId);
+
     const [messages, setMessages] = useState<Message[]>([]);
     const [text, setText] = useState('');
     const flatListRef = useRef<FlatList>(null);
     const myId = session?.user.id;
 
     useEffect(() => {
+        //find existing chat messages
         const fetchMessages = async () => {
             const { data, error } = await supabase
                 .from('messages')
@@ -60,6 +63,7 @@ const ChatScreen = () => {
             receiver_id: userId,
             content: text.trim(),
         });
+        console.log("reciever id", userId)
         setText('');
     };
 

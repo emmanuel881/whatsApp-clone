@@ -72,7 +72,7 @@ export default function SignInScreen() {
             behavior={Platform.OS === "ios" ? "padding" : undefined}
         >
             <View className="items-center mb-10">
-                <Text className="text-4xl font-bold text-[#E9EBEC] mb-2">WhatsApp</Text>
+                <Text className="text-4xl font-bold text-[#E9EBEC] mb-2">Mige</Text>
                 <Text className="text-base text-[#8696A0]">Sign in with your email and password</Text>
             </View>
             <View className="mb-6">

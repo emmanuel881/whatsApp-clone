@@ -50,16 +50,16 @@ export default function NewChatModal({ visible, onClose }: Props) {
             setLoading(false)
         }
         fetchUsers();
-        console.log("***********************************")
-        console.log("\n\n\n\n\n\n\n\n\n")
-        console.log("Results:", results)
-        console.log("***********************************")
+        // console.log("***********************************")
+        // console.log("\n\n\n\n\n\n\n\n\n")
+        // console.log("Results:", results)
+        // console.log("***********************************")
     }, [query])
 
     const handleSelectedUser = async (user: UserProfile) => {
         onClose()
 
-        router.push({ pathname: "/chats/[chatId]", params: { chatId: user.id } });
+        router.push({ pathname: "/chats/[userId]", params: { userId: user.id } });
     }
 
     return (
