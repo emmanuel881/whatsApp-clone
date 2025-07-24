@@ -12,9 +12,9 @@ const myTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    card: "#121B22",
-    primary: "#E9EBEC",
-    background: "#121B22"
+    card: "#fff",
+    primary: "#FF6B00",
+    background: "#fff"
   }
 }
 

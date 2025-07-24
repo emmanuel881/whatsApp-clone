@@ -7,7 +7,7 @@ import { showMessage } from 'react-native-flash-message';
 
 const Logout = () => {
     const router = useRouter();
-    const { session } = useAuth(); // ✅ get session from context
+    const { session } = useAuth(); // get session from context
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -63,7 +63,7 @@ const Logout = () => {
         <View>
             <Pressable
                 onPress={handleLogout}
-                className={`bg-red-600 p-4 rounded-lg m-4 ${loading ? 'opacity-60' : ''}`}
+                className={`bg-red-600 p-2 rounded-lg m-2 ${loading ? 'opacity-60' : ''}`}
                 disabled={loading}
             >
                 {loading ? (

@@ -68,19 +68,19 @@ export default function SignInScreen() {
 
     return (
         <KeyboardAvoidingView
-            className="flex-1 bg-[#121B22] justify-center px-8"
+            className="flex-1 bg-white justify-center px-8"
             behavior={Platform.OS === "ios" ? "padding" : undefined}
         >
             <View className="items-center mb-10">
-                <Text className="text-4xl font-bold text-[#E9EBEC] mb-2">Mige</Text>
-                <Text className="text-base text-[#8696A0]">Sign in with your email and password</Text>
+                <Text className="text-4xl font-bold text-[#222222] mb-2">Mige</Text>
+                <Text className="text-base text-[#666666]">Sign in with your email and password</Text>
             </View>
             <View className="mb-6">
-                <Text className="text-[#E9EBEC] mb-2 text-lg">Email Address</Text>
+                <Text className="text-[#666666] mb-2 text-lg">Email Address</Text>
                 <TextInput
-                    className="bg-[#222C33] rounded-lg px-4 py-3 text-[#E9EBEC] text-base mb-4"
+                    className="bg-[#F9F9F9] rounded-lg px-4 py-3 text-[#222222] text-base mb-4 border border-[#DDDDDD]"
                     placeholder="Enter your email"
-                    placeholderTextColor="#8696A0"
+                    placeholderTextColor="#999999"
                     keyboardType="email-address"
                     autoCapitalize="none"
                     value={email}
@@ -88,9 +88,9 @@ export default function SignInScreen() {
                 />
                 <Text className="text-[#E9EBEC] mb-2 text-lg">Password</Text>
                 <TextInput
-                    className="bg-[#222C33] rounded-lg px-4 py-3 text-[#E9EBEC] text-base"
+                    className="bg-[#F9F9F9] rounded-lg px-4 py-3 text-[#222222] text-base border border-[#DDDDDD]"
                     placeholder="Enter your password"
-                    placeholderTextColor="#8696A0"
+                    placeholderTextColor="#999999"
                     secureTextEntry
                     value={password}
                     onChangeText={setPassword}
@@ -101,8 +101,8 @@ export default function SignInScreen() {
             )}
             <TouchableOpacity
                 className={`rounded-lg py-3 items-center ${allFieldsFilled
-                    ? "bg-[#25D366]"
-                    : "bg-[#374151]"
+                    ? "bg-[#FF6B00]"
+                    : "bg-[#F0F0F0]"
                     }`}
                 onPress={handleSignIn}
                 disabled={sending || !allFieldsFilled}
@@ -122,7 +122,7 @@ export default function SignInScreen() {
                 className="mt-8 items-center"
                 onPress={() => router.replace("/sign-up")}
             >
-                <Text className="text-[#8696A0]">Don't have an account? <Text className="text-[#25D366]">Sign Up</Text></Text>
+                <Text className="text-[#666666]">Don't have an account? <Text className="text-[#FF6B00]">Sign Up</Text></Text>
             </TouchableOpacity>
         </KeyboardAvoidingView>
     );

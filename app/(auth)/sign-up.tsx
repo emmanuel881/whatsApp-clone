@@ -18,7 +18,6 @@ export default function SignUpScreen() {
     const { session, loading } = useAuth();
 
     useEffect(() => {
-        //check if there is an active session and loading is false(avoid firing if session isn't ready)
         if (!loading && session) {
             router.replace("/");
         }
@@ -59,58 +58,58 @@ export default function SignUpScreen() {
 
     if (loading) {
         return (
-            <View className="flex-1 bg-[#121B22] justify-center items-center">
-                <ActivityIndicator color="#25D366" size="large" />
+            <View className="flex-1 bg-white justify-center items-center">
+                <ActivityIndicator color="#FF6B00" size="large" />
             </View>
         );
     }
 
     return (
         <KeyboardAvoidingView
-            className="flex-1 bg-[#121B22] justify-center px-8"
+            className="flex-1 bg-white justify-center px-8"
             behavior={Platform.OS === "ios" ? "padding" : undefined}
         >
             <View className="items-center mb-10">
-                <Text className="text-4xl font-bold text-[#E9EBEC] mb-2">Mige</Text>
-                <Text className="text-base text-[#8696A0]">Sign up with your email and password</Text>
+                <Text className="text-4xl font-bold text-[#222222] mb-2">Mige</Text>
+                <Text className="text-base text-[#666666]">Sign up with your email and password</Text>
             </View>
             <View className="mb-6">
-                <Text className="text-[#E9EBEC] mb-2 text-lg">Email Address</Text>
+                <Text className="text-[#222222] mb-2 text-lg">Email Address</Text>
                 <TextInput
-                    className="bg-[#222C33] rounded-lg px-4 py-3 text-[#E9EBEC] text-base mb-4"
+                    className="bg-[#F9F9F9] border border-[#DDDDDD] rounded-lg px-4 py-3 text-[#222222] text-base mb-4"
                     placeholder="Enter your email"
-                    placeholderTextColor="#8696A0"
+                    placeholderTextColor="#999999"
                     keyboardType="email-address"
                     autoCapitalize="none"
                     value={email}
                     onChangeText={setEmail}
                 />
-                <Text className="text-[#E9EBEC] mb-2 text-lg">Password</Text>
+                <Text className="text-[#222222] mb-2 text-lg">Password</Text>
                 <TextInput
-                    className="bg-[#222C33] rounded-lg px-4 py-3 text-[#E9EBEC] text-base mb-4"
+                    className="bg-[#F9F9F9] border border-[#DDDDDD] rounded-lg px-4 py-3 text-[#222222] text-base mb-4"
                     placeholder="Enter a password"
-                    placeholderTextColor="#8696A0"
+                    placeholderTextColor="#999999"
                     secureTextEntry
                     value={password}
                     onChangeText={setPassword}
                 />
-                <Text className="text-[#E9EBEC] mb-2 text-lg">Confirm Password</Text>
+                <Text className="text-[#222222] mb-2 text-lg">Confirm Password</Text>
                 <TextInput
-                    className="bg-[#222C33] rounded-lg px-4 py-3 text-[#E9EBEC] text-base"
+                    className="bg-[#F9F9F9] border border-[#DDDDDD] rounded-lg px-4 py-3 text-[#222222] text-base"
                     placeholder="Confirm your password"
-                    placeholderTextColor="#8696A0"
+                    placeholderTextColor="#999999"
                     secureTextEntry
                     value={confirmPassword}
                     onChangeText={setConfirmPassword}
                 />
             </View>
             {message && (
-                <Text className="text-center mb-4 text-[#25D366]">{message}</Text>
+                <Text className="text-center mb-4 text-[#FF6B00]">{message}</Text>
             )}
             <TouchableOpacity
                 className={`rounded-lg py-3 items-center ${allFieldsFilled
-                    ? "bg-[#25D366]"
-                    : "bg-[#374151]"
+                    ? "bg-[#FF6B00]"
+                    : "bg-[#F0F0F0]"
                     }`}
                 onPress={handleSignUp}
                 disabled={sending || !allFieldsFilled}
@@ -130,8 +129,8 @@ export default function SignUpScreen() {
                 className="mt-8 items-center"
                 onPress={() => router.replace("/sign-in")}
             >
-                <Text className="text-[#8696A0]">
-                    Already have an account? <Text className="text-[#25D366]">login</Text>
+                <Text className="text-[#666666]">
+                    Already have an account? <Text className="text-[#FF6B00]">login</Text>
                 </Text>
             </TouchableOpacity>
         </KeyboardAvoidingView>

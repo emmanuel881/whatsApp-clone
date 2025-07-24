@@ -15,7 +15,6 @@ interface Message {
 const ChatScreen = () => {
     const { session } = useAuth();
     const { userId } = useLocalSearchParams<{ userId: string }>();
-    // console.log("User ID from params:", userId);
 
     const [messages, setMessages] = useState<Message[]>([]);
     const [text, setText] = useState('');
@@ -23,7 +22,6 @@ const ChatScreen = () => {
     const myId = session?.user.id;
 
     useEffect(() => {
-        //find existing chat messages
         const fetchMessages = async () => {
             const { data, error } = await supabase
                 .from('messages')
@@ -63,12 +61,11 @@ const ChatScreen = () => {
             receiver_id: userId,
             content: text.trim(),
         });
-        console.log("reciever id", userId)
         setText('');
     };
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#121B22' }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <FlatList
                 ref={flatListRef}
                 data={messages}
@@ -77,7 +74,7 @@ const ChatScreen = () => {
                     <View
                         style={{
                             alignSelf: item.sender_id === myId ? 'flex-end' : 'flex-start',
-                            backgroundColor: item.sender_id === myId ? '#25D366' : '#2A3942',
+                            backgroundColor: item.sender_id === myId ? '#FF6B00' : '#F0F0F0',
                             padding: 10,
                             borderRadius: 8,
                             marginVertical: 4,
@@ -85,7 +82,7 @@ const ChatScreen = () => {
                             marginHorizontal: 10,
                         }}
                     >
-                        <Text style={{ color: 'white' }}>{item.content}</Text>
+                        <Text style={{ color: item.sender_id === myId ? '#fff' : '#222222' }}>{item.content}</Text>
                     </View>
                 )}
                 onContentSizeChange={() => flatListRef.current?.scrollToEnd({ animated: true })}
@@ -101,19 +98,21 @@ const ChatScreen = () => {
                         value={text}
                         onChangeText={setText}
                         placeholder="Type a message..."
-                        placeholderTextColor="#999"
+                        placeholderTextColor="#999999"
                         style={{
                             flex: 1,
-                            backgroundColor: '#1F2C34',
-                            color: 'white',
+                            backgroundColor: '#F9F9F9',
+                            color: '#222222',
                             paddingHorizontal: 15,
                             paddingVertical: 10,
                             borderRadius: 25,
                             marginRight: 10,
+                            borderWidth: 1,
+                            borderColor: '#DDDDDD',
                         }}
                     />
-                    <TouchableOpacity onPress={sendMessage} style={{ justifyContent: 'center' }}>
-                        <Text style={{ color: '#25D366', fontWeight: 'bold' }}>Send</Text>
+                    <TouchableOpacity onPress={sendMessage} style={{ justifyContent: 'center', backgroundColor: '#FF6B00', borderRadius: 25, paddingHorizontal: 18, paddingVertical: 8 }}>
+                        <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 16 }}>Send</Text>
                     </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>

@@ -1,4 +1,4 @@
-import Logout from "@/src/components/Logout";
+
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 
 import { useAuth } from "@/src/context/auth-context";
@@ -40,6 +40,7 @@ export default function Index() {
         return;
       }
 
+      // Extract unique partner IDs from messages to fetch profiles
       const partnerIds = messages.map((msg: any) =>
         msg.sender_id === myId ? msg.receiver_id : msg.sender_id
       );
@@ -97,8 +98,8 @@ export default function Index() {
 
 
   return (
-    <View style={{ flex: 1, backgroundColor: "#000" }}>
-      <Logout />
+    <View style={{ flex: 1, backgroundColor: "#fff" }}>
+
 
       <FlatList
         data={chats}

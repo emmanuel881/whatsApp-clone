@@ -40,6 +40,7 @@ export default function TabsLayout() {
                 headerTitleStyle: {
                     fontWeight: "bold",
                     fontSize: 22,
+                    color: "#222222",
                 },
             }}
         >
@@ -47,7 +48,7 @@ export default function TabsLayout() {
                 name="index"
                 options={{
                     title: "Chats",
-                    headerTitle: "WhatsApp",
+                    headerTitle: "Mige",
                     headerRight: () => <HeaderChatsIcons />,
                     tabBarIcon: ({ color }) => <MessageSquare size={24} color={color} />,
                 }}
