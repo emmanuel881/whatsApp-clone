@@ -5,11 +5,8 @@ import { Pressable, View } from 'react-native';
 import NewChatModal from '../modals/NewChatModal';
 
 
-interface Props {
-    onSearchPress: () => void;
-}
 
-const HeaderChatsIcons: React.FC<Props> = ({ onSearchPress }) => {
+const HeaderChatsIcons = () => {
     const { colors } = useTheme();
     const [modalVisible, setModalVisible] = useState(false)
 

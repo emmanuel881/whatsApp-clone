@@ -12,6 +12,8 @@ export default function TabsLayout() {
     const { session, loading } = useAuth();
     const router = useRouter();
 
+
+
     // 🔐 Redirect after loading finishes
     useEffect(() => {
         if (!loading && !session) {
